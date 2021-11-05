@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Spitter register</title>
+<link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}"></link>
+</head>
+<body>
+
+		<form method="POST" th:object="${spitter}" enctype="multipart/form-data">
+		<div class="errors" th:if="${#fields.hasErrors('*')}">
+			<ul>
+				<li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+			</ul>
+		</div>
+			<label th:class="${#fields.hasErrors('firstName')}? 'error'">First Name</label>:
+			<input type="text" th:field="*{firstName}" th:class="${#fields.hasErrors('firstName')}? 'error'" /><br/>
+			<label th:class="${#fields.hasErrors('lastName')}? 'error'">Last Name</label>:
+			<input type="text" th:field="*{lastName}" th:class="${#fields.hasErrors('lastName')}? 'error'" /><br/>
+			<label th:class="${#fields.hasErrors('email')}? 'error'">Email</label>:
+			<input type="text" th:field="*{email}" th:class="${#fields.hasErrors('email')}? 'error'" /><br/>
+			<label th:class="${#fields.hasErrors('userName')}? 'error'">Username</label>:
+			<input type="text" th:field="*{userName}" th:class="${#fields.hasErrors('userName')}? 'error'" /><br/>
+			<label th:class="${#fields.hasErrors('password')}? 'error'">Password</label>:
+			<input type="password" th:field="*{password}" th:class="${#fields.hasErrors('password')}? 'error'" /><br/>
+			
+			<label>Profile Picture</label>:
+			<input type="file"	name="profilePicture" accept="image/jpeg,image/png,image/gif" /><br/>
+			
+			
+			<input type="submit" value="Register" />
+</form>
+
+</body>
+</html>

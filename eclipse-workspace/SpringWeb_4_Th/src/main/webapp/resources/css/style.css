@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+span.error {
+color: red;
+}
+
+label.error {
+color: red;
+}
